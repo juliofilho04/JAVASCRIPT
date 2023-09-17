@@ -1,7 +1,7 @@
 function calculadora() {
-    const operacao = Number(prompt("Escolha uma operação: \n1 - adição\n2 - subtração\n3 - multiplicação\n4 - divisão"));
+    const operacao = Number(prompt("Escolha uma operação: \n1 - adição (+)\n2 - subtração (-)\n3 - multiplicação (*)\n4 - divisão (/)\n5 - resto (%)\n6 - potência (**)"));
 
-    if (!operacao || operacao >= 5) {
+    if (!operacao || operacao >= 7) {
         alert(`Operação inválida. Digite novamente`)
         calculadora();
     }
@@ -35,6 +35,16 @@ function calculadora() {
                 alert(`${n1} / ${n2} = ${resultado}`)
                 novaOperacao();
             }
+            function resto() {
+                resultado = n1 % n2;
+                alert(`O resto da divisão entre ${n1} e ${n2} é ${resultado}`)
+                novaOperacao();
+            }
+            function potencia() {
+                resultado = n1 ** n2;
+                alert(`${n1} elevado a ${n2}ª potência é igual a ${resultado}`)
+                novaOperacao();
+            }
 
             function novaOperacao() {
                 let opcao = prompt("Deseja realizar outra operação?\n1 - sim\n2 - não")
@@ -63,6 +73,12 @@ function calculadora() {
         }
         else if (operacao == 4) {
             divisao();
+        }
+        else if (operacao == 5) {
+            resto();
+        }
+        else if (operacao == 6) {
+            potencia();
         }
     }
 }
